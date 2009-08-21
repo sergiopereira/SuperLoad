@@ -1,0 +1,63 @@
+
+jQuery SuperLoad
+
+<p>An important part of working with jQuery is to create plugins to 
+simplify repetitive tasks. I write jQuery plugins all the time for
+internal consumptions of my applications.</p> 
+
+<p>Most of them are not of enough general purpose to be shared publicly.
+Recently I created one that could stand on its own and I chose to 
+make it available if anyone is interested.</p>
+
+<h3>Multiple Element Ajax Updates</h3>
+
+<p><a href="http://github.com/sergiopereira/SuperLoad">jQuery SuperLoad</a>
+came out of the necessity to update more than one element in a page
+without needing to do everything with JavaScript (and 
+<a href="http://devlicio.us/blogs/sergio_pereira/archive/tags/JavaScript/default.aspx">you know</a> 
+I'm not the one that avoids JavaScript).</p>
+
+<p>All of the page elements I needed to update with Ajax came from
+page segments (partials, user controls, etc) that I had available on
+my server side. It seemed appropriate to go back to the server to 
+get updated versions of that same HTML. But I didn't want to issue a 
+separate <code>$.ajax</code> or <code>$(elem).load</code> for each one of them. </p>
+
+<p>Using SuperLoad I can now return somethinng like the following from
+my server application and have more than one element updated.</p>
+
+<pre name="code" class="xml:nogutter">&lt;div class="ajax-content"&gt;
+	&lt;div title="!appendTo #content .shoppingList"&gt;
+		&lt;li&gt;
+			&lt;img src="prodImage.png" class="product-image"&gt;
+			&lt;div class="prodSummary"&gt;
+				&lt;div class="prodTitle"&gt;ACME Product&lt;/div&gt;
+				&lt;div class="prodPrice"&gt;$12.34&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/li&gt;
+	&lt;/div&gt;
+	&lt;div title="!update #orderTotal"&gt;
+		Total: &lt;span class="totalPrice"&gt;$47.22&lt;/span&gt;
+		&lt;div class="specialOffer"&gt;Eligible for free shipping!&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;script&gt;
+		$('#orderTotal specialOffer').effect('highlight');
+	&lt;/script&gt;
+&lt;/div&gt;</pre>
+
+<p>All that is needed for this to be correctly applied to the right
+elements (indicated by <code>#content .shoppingList</code> and <code> #orderTotal</code>
+is a line of code similar to this example.</p>
+
+<pre name="code" class="js:nogutter">$.superLoad({ 
+	url: '/shopping/addItem', 
+	type: 'POST', 
+	data: {product: 12345} 
+});</pre>
+
+<p>Check the plugin source code comments or the <a href="http://github.com/sergiopereira/SuperLoad">repository page</a>
+for more details.</p>
+
+
+
+
