@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>SuperLoad jQuery Plugin Sample</title>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="jquery.superload.js"></script>
+<link rel="stylesheet" type="text/css" href="rating.css" />
+<script type="text/javascript">
+
+
+$(document).ready(function() {
+
+
+	$('#btn').click( function(){ 
+		$.superLoad({
+			url : 'response.html?' + new Date().getTime(),
+			dataType: 'html',
+			success: function(data){ alert('success! Data:\n' + data); }
+		});
+	});
+
+});
+</script>
+</head>
+<body>
+	<div id="div1" style="width:300px; background-color:#ffa;">This is div1</div>
+	<div id="div2" style="width:300px; background-color:#faf;">This is div2</div>
+	<div id="div3" style="width:300px; background-color:#aff;">This is div3</div>
+	<div id="div4" style="width:300px; background-color:#aaa;">This is div4</div>
+	<div id="div5" style="width:300px; background-color:#afa;">This is div5</div>
+	<input id="btn" value="Test" type="button" >
+</body>
+</html>
