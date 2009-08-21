@@ -64,10 +64,10 @@ The title attribute:
 * The ajax-content element's title attribute is used to determine what to do with the content:
 * The format is: "!command selector"
 * "!command": defaults to !update
-!update:	replaces the inner HTML of the selected element(s) with the inner HTML of the ajax-content
-!prependTo:	adds the inner HTML of the ajax-content to the top of the inner HTML of the selected element(s)
-!appendTo:	adds the inner HTML of the ajax-content to the bottom of the inner HTML of the selected element(s)
-!other:		Beyond the above 3 standard !commands, one can also simply pass 
+* !update:	replaces the inner HTML of the selected element(s) with the inner HTML of the ajax-content
+* !prependTo:	adds the inner HTML of the ajax-content to the top of the inner HTML of the selected element(s)
+* !appendTo:	adds the inner HTML of the ajax-content to the bottom of the inner HTML of the selected element(s)
+* !other:		Beyond the above 3 standard !commands, one can also simply pass 
 the name of any valid jQuery command (default of from a plugin) as
 long as the command is able to be applied to the selected element(s)
 and takes the new content as its argument.
