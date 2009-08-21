@@ -1,5 +1,6 @@
 /*!
  * SuperLoad - jQuery plugin 1.0.0
+ * http://github.com/sergiopereira/SuperLoad
  *
  * Copyright (c) 2009 Sergio Pereira http://sergiopereira.com/blog
  *
